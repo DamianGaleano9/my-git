@@ -67,16 +67,6 @@ console.log(`i Wants for me ${userMainDish} with a little by ${accompanimentMenu
 var waitressComment = `We have different dishes I would recommend ${userMainDish} with a little of ${accompanimentMenu[1].dish}.`
 console.log(waitressComment)
 
-
-
-
-for (let property in mainMenu) {
-    if (mainMenu === property && accompanimentMenu === property) {
-        var there =
-            console.log(`${mainMenu.price} + ${accompanimentMenu.price}`)
-    }
-}
-
 // TELL THE PRICE
 
 
@@ -100,29 +90,44 @@ console.log(Object.values(mainMenu))
 
 
 // FOR COUSIN
-// for BREAKFAST
+
+function mixMenu(breakfast, lunch, dinner) {
+
+    for (var i = 0; i < breakfast.length; i++) {
+        var dish = breakfast[i].dish;
+        var price = breakfast[i].price;
+        console.log('We have' + ' ' + dish + ' for ' + price + '€')
+    }
 
 
-for (var i = 0; i < breakfast.length; i++) {
-    var dish = breakfast[i].dish;
-    var price = breakfast[i].price;
-    console.log('We have' + ' ' + dish + ' for ' + price + '€')
+    for (var i = 0; i < lunch.length; i++) {
+        var dish = lunch[i].dish;
+        var price = lunch[i].price;
+        console.log('We have' + ' ' + dish + ' for ' + price + '€')
+    }
+
+
+
+
+    for (var i = 0; i < dinner.length; i++) {
+        var dish = dinner[i].dish;
+        var price = dinner[i].price;
+        console.log('We have' + ' ' + dish + ' for ' + price + '€')
+    }
+}
+mixMenu(breakfast, lunch, dinner)
+
+
+function comboMenu(dinner, breakfast, lunch) {
+    var percentaje = 10;
+
+    var todayMenu = dinner[0].price + breakfast[1].price + lunch[2].price;
+    console.log(todayMenu)
+    var discount = todayMenu * (percentaje / 100);
+
+    var total = discount - todayMenu;
+
+    return total;
 }
 
-
-for (var i = 0; i < lunch.length; i++) {
-    var dish = lunch[i].dish;
-    var price = lunch[i].price;
-    console.log('We have' + ' ' + dish + ' for ' + price + '€')
-}
-
-
-
-
-for (var i = 0; i < dinner.length; i++) {
-    var dish = dinner[i].dish;
-    var price = dinner[i].price;
-    console.log('We have' + ' ' + dish + ' for ' + price + '€')
-}
-
-
+console.log(comboMenu(dinner, breakfast, lunch))
